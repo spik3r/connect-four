@@ -26,19 +26,16 @@ const reducer = (state, action) => {
     const diagonalWin = checkDiagonals(state.gameBoard);
 
     if (columnWin) {
-        console.log(`Player ${columnWin} wins`);
         alert(`Player ${columnWin} wins`);
         state.hasWon = true;
     }
 
     if (rowWin) {
-        console.log(`Player ${rowWin} wins`);
         alert(`Player ${rowWin} wins`);
         state.hasWon = true;
     }
 
     if (diagonalWin) {
-        console.log(`Player ${diagonalWin} wins`);
         alert(`Player ${diagonalWin} wins`);
         state.hasWon = true;
     }
@@ -52,7 +49,6 @@ const reducer = (state, action) => {
 
 const shouldKeepPlaying = (state) => {
     if (isTie(state.turns)) {
-        console.log(`Draw!`);
         alert(`Draw!`);
         return false;
     }
@@ -112,9 +108,8 @@ export const checkRows = (gameBoard) => {
 
 export const checkDiagonals = (gameBoard) => {
 
-    //Bottom Left to Top Right
     for (let col = 0; col <= 4; col++) {
-        for (let row = 0; row <= 2; row++) {
+        for (let row = 0; row <= 3; row++) {
             if (gameBoard[row][col] !== undefined) {
                 const potentialWinner = gameBoard[row][col];
                 if (
@@ -127,7 +122,6 @@ export const checkDiagonals = (gameBoard) => {
         }
     }
 
-    //Top Left to Bottom Right
     for (let col = 0; col <= 4; col++) {
         for (let row = 3; row <= 6; row++) {
             if (gameBoard[row][col] !== undefined) {

@@ -7,7 +7,6 @@ import {resetGame} from "./actions";
 class Game extends Component {
 
     clickHandler() {
-        console.log("resetting game!!!");
         document.location.reload();
         this.props.reset();
     }

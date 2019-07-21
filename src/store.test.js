@@ -124,4 +124,18 @@ describe('win logic works', () => {
         expect(result).toMatch("YELLOW");
     });
 
+    it('should detect top left to bottom right diagonal win at right edge', () => {
+        const gameBoard = [
+            ["RED", "RED", "RED", "YELLOW"],
+            ["YELLOW", "RED", "YELLOW"],
+            ["YELLOW"],
+            ["RED", "YELLOW", "RED"],
+            ["YELLOW", "YELLOW", "YELLOW", "RED"],
+            ["YELLOW", "RED", "YELLOW", "RED", "RED"],
+            ["YELLOW", "RED", "YELLOW", "RED", "YELLOW", "RED"],
+        ];
+        const result = checkDiagonals(gameBoard);
+        expect(result).toMatch("RED");
+    });
+
 });

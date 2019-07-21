@@ -5,7 +5,6 @@ import {dropDisk} from "./actions";
 
 class Cell extends Component {
     clickHandler() {
-        console.log("clicked on: " + this.props.x);
         this.props.dropNextDisk(this.props.x, this.props.y);
     }
 
@@ -23,7 +22,6 @@ class Cell extends Component {
 
 const getCellColor = (gameBoard, x, y) => {
     if (gameBoard[x][y] !== undefined) {
-        console.log("gb[x][x]: " + gameBoard[x][y]);
         if (gameBoard[x][y] === "YELLOW") {
             return "cell yellow-disk"
         }
