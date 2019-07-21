@@ -77,7 +77,7 @@ const playNextRound = (state, action) => {
 };
 
 export const checkColums = (gameBoard) => {
-    for (let row = 0; row <= 5; row++) {
+    for (let row = 0; row <= 6; row++) {
         for (let col = 0; col <= 3; col++) {
             if (gameBoard[row][col] !== undefined) {
                 const potentialWinner = gameBoard[row][col];
@@ -95,7 +95,7 @@ export const checkColums = (gameBoard) => {
 
 export const checkRows = (gameBoard) => {
     for (let col = 0; col <= 6; col++) {
-        for (let row = 0; row <= 2; row++) {
+        for (let row = 0; row <= 3; row++) {
             if (gameBoard[row][col] !== undefined) {
                 const potentialWinner = gameBoard[row][col];
                 if (

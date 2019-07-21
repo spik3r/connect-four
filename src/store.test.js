@@ -40,6 +40,20 @@ describe('win logic works', () => {
         expect(result).toMatch("YELLOW");
     });
 
+    it('should detect row win bottom edge', () => {
+        const gameBoard = [
+            ["YELLOW", "RED"],
+            ["YELLOW"],
+            ["YELLOW"],
+            ["RED"],
+            ["RED"],
+            ["RED"],
+            ["RED"],
+        ];
+        const result = checkRows(gameBoard);
+        expect(result).toMatch("RED");
+    });
+
     it('should detect column win', () => {
         const gameBoard = [
             ["YELLOW"],
@@ -49,6 +63,34 @@ describe('win logic works', () => {
             ["YELLOW"],
             ["YELLOW"],
             [],
+        ];
+        const result = checkColums(gameBoard);
+        expect(result).toMatch("RED");
+    });
+
+    it('should detect column win left side', () => {
+        const gameBoard = [
+            ["RED", "RED", "RED", "RED"],
+            ["YELLOW"],
+            ["YELLOW"],
+            ["RED"],
+            ["YELLOW"],
+            ["YELLOW"],
+            ["RED"],
+        ];
+        const result = checkColums(gameBoard);
+        expect(result).toMatch("RED");
+    });
+
+    it('should detect column win top right side', () => {
+        const gameBoard = [
+            ["YELLOW"],
+            ["YELLOW"],
+            ["RED"],
+            ["YELLOW"],
+            ["YELLOW"],
+            ["RED"],
+            ["YELLOW", "YELLOW", "RED", "RED", "RED", "RED"],
         ];
         const result = checkColums(gameBoard);
         expect(result).toMatch("RED");

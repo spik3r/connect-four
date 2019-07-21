@@ -1,6 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Connect Four
+Can be viewed on [Heroku](https://react-connect-four.herokuapp.com/)
+
 Simple connect-four game inspired by the Hasbro colour theme :)
 Made using 
 - React,
