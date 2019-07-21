@@ -1,10 +1,9 @@
-import {checkRows, checkColums, checkDiagonals} from "./store";
+import {checkColums, checkDiagonals, checkRows} from "./store";
 
 describe('win logic works', () => {
 
     it('jest works', () => {
         expect(2 + 3).toBe(5);
-
     });
 
     it('empty board has no win', () => {

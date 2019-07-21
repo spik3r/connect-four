@@ -13,7 +13,6 @@ class Cell extends Component {
 
         const cellClass = getCellColor(this.props.gameBoard, this.props.x, this.props.y);
 
-
         return (
             <div className={`${cellClass}`} onClick={() => this.clickHandler()}>
                 <p>{this.props.x}, {this.props.y}</p>
@@ -23,12 +22,14 @@ class Cell extends Component {
 }
 
 const getCellColor = (gameBoard, x, y) => {
-    if(gameBoard[x][y] !== undefined) {
+    if (gameBoard[x][y] !== undefined) {
         console.log("gb[x][x]: " + gameBoard[x][y]);
         if (gameBoard[x][y] === "YELLOW") {
             return "cell yellow-disk"
-        } return "cell red-disk"
-    } return "cell"
+        }
+        return "cell red-disk"
+    }
+    return "cell"
 };
 
 const stateToProps = state => {

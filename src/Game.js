@@ -4,7 +4,6 @@ import Grid from "./Grid";
 import {connect} from "react-redux";
 import {resetGame} from "./actions";
 
-
 class Game extends Component {
 
     clickHandler() {

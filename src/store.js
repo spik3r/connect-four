@@ -51,7 +51,7 @@ const reducer = (state, action) => {
 };
 
 const shouldKeepPlaying = (state) => {
-    if (state.turns >= 42) {
+    if (isTie(state.turns)) {
         console.log(`Draw!`);
         alert(`Draw!`);
         return false;
@@ -77,10 +77,8 @@ const playNextRound = (state, action) => {
 };
 
 export const checkColums = (gameBoard) => {
-    for (let row = 5; row >= 0; row--) {
-        // let yellowConsecutive = 0;
-        // let redConsecutive = 0;
-        for (let col = 0; col <= 6; col++) {
+    for (let row = 0; row <= 5; row++) {
+        for (let col = 0; col <= 3; col++) {
             if (gameBoard[row][col] !== undefined) {
                 const potentialWinner = gameBoard[row][col];
                 if (
@@ -90,21 +88,6 @@ export const checkColums = (gameBoard) => {
                     return potentialWinner;
                 }
             }
-
-            // if (gameBoard[row][col] === "YELLOW") {
-            //     yellowConsecutive++;
-            //     redConsecutive = 0;
-            //     if (yellowConsecutive === 4) {
-            //         return "YELLOW";
-            //     }
-            // }
-            // if (gameBoard[row][col] === "RED") {
-            //     redConsecutive++;
-            //     yellowConsecutive = 0;
-            //     if (redConsecutive === 4) {
-            //         return "RED";
-            //     }
-            // }
         }
     }
     return false;
@@ -112,9 +95,7 @@ export const checkColums = (gameBoard) => {
 
 export const checkRows = (gameBoard) => {
     for (let col = 0; col <= 6; col++) {
-        // let yellowConsecutive = 0;
-        // let redConsecutive = 0;
-        for (let row = 5; row >= 0; row--) {
+        for (let row = 0; row <= 2; row++) {
             if (gameBoard[row][col] !== undefined) {
                 const potentialWinner = gameBoard[row][col];
                 if (
@@ -124,22 +105,6 @@ export const checkRows = (gameBoard) => {
                     return potentialWinner;
                 }
             }
-
-            // if (gameBoard[row][col] === "YELLOW") {
-            //     yellowConsecutive++;
-            //     redConsecutive = 0;
-            //     if (yellowConsecutive === 4) {
-            //         return "YELLOW";
-            //     }
-            // }
-            //
-            // if (gameBoard[row][col] === "RED") {
-            //     redConsecutive++;
-            //     yellowConsecutive = 0;
-            //     if (redConsecutive === 4) {
-            //         return "RED";
-            //     }
-            // }
         }
     }
     return false;
@@ -148,8 +113,8 @@ export const checkRows = (gameBoard) => {
 export const checkDiagonals = (gameBoard) => {
 
     //Bottom Left to Top Right
-    for (let col = 0; col <= 6; col++) {
-        for (let row = 0; row <= 5; row++) {
+    for (let col = 0; col <= 4; col++) {
+        for (let row = 0; row <= 2; row++) {
             if (gameBoard[row][col] !== undefined) {
                 const potentialWinner = gameBoard[row][col];
                 if (
@@ -163,8 +128,8 @@ export const checkDiagonals = (gameBoard) => {
     }
 
     //Top Left to Bottom Right
-    for (let col = 0; col <= 6; col++) {
-        for (let row = 3; row <= 5; row++) {
+    for (let col = 0; col <= 4; col++) {
+        for (let row = 3; row <= 6; row++) {
             if (gameBoard[row][col] !== undefined) {
                 const potentialWinner = gameBoard[row][col];
                 if (
@@ -178,6 +143,10 @@ export const checkDiagonals = (gameBoard) => {
     }
 
     return false;
+};
+
+export const isTie = (turns) => {
+    return turns > 41;
 };
 
 export default createStore(reducer, INITIAL_STATE);
